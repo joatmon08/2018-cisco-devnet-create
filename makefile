@@ -1,5 +1,8 @@
 .PHONY: unit bootstrap
 
+pipeline:
+	sh -c 'docker-compose up -d'
+
 unit: check_ansible_syntax check_openvswitch_playbook
 
 contract: bootstrap

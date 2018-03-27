@@ -1,0 +1,13 @@
+pipelines:
+  2018-cisco-devnet-create:
+    group: 2018-cisco-devnet-create
+    materials:
+      github:
+        git: https://github.com/joatmon08/2018-cisco-devnet-create.git
+    stages:
+      - build: lint
+          jobs:
+            build: unit test
+              tasks:
+               - exec:
+                   command: PYTHONPATH=$(pwd) make unit
