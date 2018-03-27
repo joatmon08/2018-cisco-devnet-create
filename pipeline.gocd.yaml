@@ -11,4 +11,6 @@ pipelines:
             unit:
               tasks:
                 - exec:
-                    command: make unit
+                    command: make
+                    arguments:
+                      - "unit"
