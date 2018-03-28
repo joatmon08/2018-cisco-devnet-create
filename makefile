@@ -1,5 +1,11 @@
 .PHONY: unit bootstrap
 
+lint_yaml:
+	sh -c 'yamllint .'
+
+lint_python:
+	sh -c 'flake8 .'
+
 unit: check_openvswitch_playbook
 
 contract: bootstrap
