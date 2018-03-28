@@ -11,7 +11,10 @@ pipelines:
             unit:
               tasks:
                 - exec:
+                    command: export
+                    arguments:
+                      - "PYTHONPATH=$(pwd)"
+                - exec:
                     command: make
                     arguments:
                       - "unit"
-                      - "PYTHONPATH=$(pwd)"
