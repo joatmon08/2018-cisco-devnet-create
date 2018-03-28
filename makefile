@@ -1,9 +1,6 @@
 .PHONY: unit bootstrap
 
-pipeline:
-	sh -c 'docker-compose up -d'
-
-unit: check_ansible_syntax check_openvswitch_playbook
+unit: check_openvswitch_playbook
 
 contract: bootstrap
 	sh -c '. /tmp/devnetvenv/bin/activate; pytest tests/contract --capture=no'

@@ -8,12 +8,22 @@ pipelines:
     stages:
       - lint:
           jobs:
+            check-playbook-syntax:
+              tasks:
+                - exec:
+                    command: make
+                    arguments:
+                      - "check_ansible_syntax"
+      - unit-test:
+          jobs:
             unit:
               tasks:
                 - exec:
                     command: make
                     arguments:
                       - "unit"
+      - contract-test:
+          jobs:
             contract:
               tasks:
                 - exec:
