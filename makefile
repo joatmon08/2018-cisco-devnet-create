@@ -28,6 +28,4 @@ ifneq ($(wildcard requirements.txt),)
 endif
 
 virtualenv:
-	virtualenv -p python3 /tmp/devnetvenv
-	/tmp/devnetvenv/bin/pip install --upgrade pip
-	/tmp/devnetvenv/bin/pip install --upgrade setuptools
+	./setup-virtualenv.sh
