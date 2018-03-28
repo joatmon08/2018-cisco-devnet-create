@@ -11,13 +11,13 @@ pipelines:
             lint-python-files:
               tasks:
                 - exec:
-                    command: flake8
+                    command: /tmp/devnetvenv/bin/flake8
                     arguments:
                       - "."
             lint-yaml-files:
               tasks:
                 - exec:
-                    command: yamllint
+                    command: /tmp/devnetvenv/bin/yamllint
                     arguments:
                       - "."
             check-playbook-syntax:
