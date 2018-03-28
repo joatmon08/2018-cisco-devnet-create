@@ -19,10 +19,5 @@ openvswitch_box:
 	cd ovs-vagrant && vagrant package --output openvswitch.box
 	cd ovs-vagrant && vagrant box add openvswitch openvswitch.box --force
 
-bootstrap: virtualenv
-ifneq ($(wildcard requirements.txt),)
-	/tmp/devnetvenv/bin/pip install -r requirements.txt
-endif
-
-virtualenv:
+bootstrap:
 	./setup-virtualenv.sh
