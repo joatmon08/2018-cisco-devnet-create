@@ -14,3 +14,17 @@ pipelines:
                     command: make
                     arguments:
                       - "unit"
+            contract:
+              tasks:
+                - exec:
+                    command: make
+                    arguments:
+                      - "contract"
+      - build-and-test:
+          jobs:
+            test:
+              tasks:
+                - exec:
+                    command: make
+                    arguments:
+                      - "integration"
