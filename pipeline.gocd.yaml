@@ -8,6 +8,18 @@ pipelines:
     stages:
       - lint:
           jobs:
+            lint-python-files:
+              tasks:
+                - exec:
+                    command: flake8
+                    arguments:
+                      - "."
+            lint-yaml-files:
+              tasks:
+                - exec:
+                    command: yamllint
+                    arguments:
+                      - "."
             check-playbook-syntax:
               tasks:
                 - exec:

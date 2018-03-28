@@ -4,3 +4,5 @@ behave
 docker
 ansible
 requests
+yamllint
+flake8
