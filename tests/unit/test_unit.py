@@ -8,6 +8,7 @@ VAGRANTFILE = "{0}/{1}".format(os.getcwd(), TEST_FIXTURE_PATH)
 unit_box = vagrant.Gateway(vagrantfile=VAGRANTFILE)
 unit_test_config = config.UnitTest(HOSTS_FILE)
 
+
 @pytest.fixture(autouse=True)
 def setup_and_teardown():
     unit_box.create()
@@ -15,6 +16,7 @@ def setup_and_teardown():
     yield
     unit_test_config.remove_hosts_file()
     unit_box.destroy()
+
 
 def test_check_openvswitch_playbook():
     unit_playbook = playbook.AnsiblePlaybook('playbook', 'site.yml', HOSTS_FILE)

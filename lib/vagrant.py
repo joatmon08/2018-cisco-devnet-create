@@ -1,5 +1,6 @@
 import vagrant
 
+
 class SSHConfig:
     host = 'unit'
     hostname = '127.0.0.1'
@@ -24,6 +25,7 @@ class SSHConfig:
                 self.port = line.split()[1]
             if 'IdentityFile ' in line:
                 self.identity_file = line.split()[1]
+
 
 class Gateway:
 

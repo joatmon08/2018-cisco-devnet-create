@@ -1,5 +1,6 @@
 import time
 
+
 class TestContainer:
     def __init__(self, client, ip_address, network_name):
         self.client = client
@@ -13,6 +14,7 @@ class TestContainer:
 
     def destroy(self):
         self.client.destroy_container(self.container)
+
 
 def _get_ip_addresses(cidr_block, start_num, num_ips):
     block = cidr_block.split('/')

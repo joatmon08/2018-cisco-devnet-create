@@ -1,6 +1,7 @@
 import os
 import re
 
+
 class IntegrationTest:
     CONTAINER_ROOT_VAGRANT = '/root/ovs-vagrant'
 
@@ -35,6 +36,7 @@ class IntegrationTest:
             'mode': 'rw'
         }
         return mounts
+
 
 class UnitTest:
     def __init__(self, hosts_file):

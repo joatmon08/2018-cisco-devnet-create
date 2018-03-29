@@ -38,7 +38,7 @@ class AnsiblePlaybook:
     @staticmethod
     def _set_options():
         Options = namedtuple('Options', ['listtags', 'listtasks', 'listhosts',
-                                         'syntax', 'connection','module_path',
+                                         'syntax', 'connection', 'module_path',
                                          'forks', 'remote_user', 'private_key_file',
                                          'ssh_common_args', 'ssh_extra_args', 'sftp_extra_args',
                                          'scp_extra_args', 'become', 'become_method',

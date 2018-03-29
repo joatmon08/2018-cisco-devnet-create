@@ -1,5 +1,4 @@
 import pytest
-import requests
 import json
 import os
 import _thread
@@ -20,6 +19,7 @@ CONTRACT_NETWORK_NAME = str(int(time.time()))
 contract_box = vagrant.Gateway(vagrantfile=VAGRANTFILE)
 contract_docker_client = container.Client(CONTRACT_HOST_IP_ADDRESS)
 data = None
+
 
 class RequestHandler(BaseHTTPRequestHandler):
     def _set_headers(self):

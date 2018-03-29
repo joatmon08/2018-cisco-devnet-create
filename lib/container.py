@@ -2,6 +2,7 @@ import docker
 from docker import types
 import os
 
+
 class Client:
     name = None
     ipam_pool = None
@@ -29,8 +30,7 @@ class Client:
             options = {
                 'com.docker.network.bridge.name': name
             }
-            self.network = self.client.networks.create(name, \
-                options=options, ipam=ipam_config)
+            self.network = self.client.networks.create(name, options=options, ipam=ipam_config)
 
     def set_network(self, name):
         self.network = self.client.networks.list(names=[name])[0]
@@ -41,16 +41,14 @@ class Client:
     def connect_container(self, container, ip_address):
         self.network.connect(container, ipv4_address=ip_address)
 
-    def create_container(self, image, network='bridge', volumes=None, \
-        ports=None, environment=None):
+    def create_container(self, image, network='bridge', volumes=None, ports=None, environment=None):
         if volumes is None and ports is None and environment is None:
-            return self.client.containers.run(image, \
-                command=self.LOOP_COMMAND, \
-                detach=True, network=network)
+            return self.client.containers.run(image, command=self.LOOP_COMMAND,
+                                              detach=True, network=network)
         else:
-            return self.client.containers.run(image, detach=True, \
-                network=network, volumes=volumes, ports=ports, \
-                environment=environment)
+            return self.client.containers.run(image, detach=True,
+                                              network=network, volumes=volumes,
+                                              ports=ports, environment=environment)
 
     def inspect_container(self, container):
         return self.client.containers.get(container.id)
