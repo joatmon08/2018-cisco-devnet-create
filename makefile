@@ -1,10 +1,10 @@
 .PHONY: unit bootstrap
 
 lint_yaml:
-	sh -c 'yamllint .'
+	sh -c '/tmp/devnetvenv/bin/yamllint .'
 
 lint_python:
-	sh -c 'flake8 .'
+	sh -c '/tmp/devnetvenv/bin/flake8 .'
 
 unit: check_openvswitch_playbook
 
