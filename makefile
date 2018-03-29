@@ -1,9 +1,9 @@
 .PHONY: unit bootstrap
 
-lint_yaml:
+lint_yaml: bootstrap
 	sh -c '. /tmp/devnetvenv/bin/activate; /tmp/devnetvenv/bin/yamllint .'
 
-lint_python:
+lint_python: bootstrap
 	sh -c '. /tmp/devnetvenv/bin/activate; /tmp/devnetvenv/bin/flake8 . --ignore F811'
 
 unit: check_openvswitch_playbook

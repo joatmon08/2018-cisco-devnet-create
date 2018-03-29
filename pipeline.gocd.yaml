@@ -7,6 +7,7 @@ pipelines:
         git: https://github.com/joatmon08/2018-cisco-devnet-create.git
     stages:
       - lint:
+          clean_workspace: true
           jobs:
             lint-python-files:
               tasks:
