@@ -1,9 +1,6 @@
 ---
 - set_fact:
-    addresses: >
-      "{{ groups['switches'] | difference([inventory_hostname])|
-       map('extract', hostvars, ['ansible_eth1', 'ipv4', 'address'])
-       | join(',') }}"
+    addresses: "{{ groups['switches'] | difference([inventory_hostname])| map('extract', hostvars, ['ansible_eth1', 'ipv4', 'address']) | join(',') }}"
 - set_fact:
     veth0: "veth{{ ansible_date_time.minute }}{{ ansible_date_time.second }}0"
 - set_fact:
@@ -31,8 +28,6 @@
     bridge: "{{ bridge_name }}"
     port: gre0
     state: present
-    set: >
-      interface gre0 type=gre
-       options:remote_ip={{ item if item else '127.0.0.1' }}
+    set: interface gre0 type=gre options:remote_ip={{ item if item else '127.0.0.1' }}
   with_items:
     - "{{ addresses }}"
