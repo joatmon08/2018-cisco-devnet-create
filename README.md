@@ -103,6 +103,26 @@ and a container on host2, then issues a ping command between the containers.
 PYTHONPATH=$(pwd) make integration
 ```
 
+## Pipeline
+If you're interested in running the pipeline job, located in `pipeline.gocd.yaml`,
+you can create a [GoCD](https://docs.gocd.org/current/installation/installing_go_agent.html) master
+using the `docker-compose.yaml` in this repository. It will create a master in a Docker container.
+You'll still need to install the agent separately for your operating system, see the link above
+for installation steps. After you install the agent:
+
+* Be sure to "enable" it under the "Agents" tab on the master.
+* Go to `Admin > Config XML` and add the following under the `<server>`
+  declaration in the XML.
+  ```
+  <config-repos>
+    <config-repo pluginId="yaml.config.plugin" id="devnet">
+      <git url="https://github.com/joatmon08/2018-cisco-devnet-create.git" />
+    </config-repo>
+  </config-repos>
+  ```
+
+The repository will be automatically added to GoCD and should begin to run.
+
 ## References
 * [Multi-Host Networking](http://docker-k8s-lab.readthedocs.io/en/latest/docker/docker-ovs.html)
 
